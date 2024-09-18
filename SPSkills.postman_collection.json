@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "e5a89578-6d81-4235-a8bd-1ce9b3933f39",
+		"name": "SPSkills",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38382200"
+	},
+	"item": [
+		{
+			"name": "Cadastrar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nome",
+							"value": "Marcos Vinicius",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "markintux",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "markintux@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "senha",
+							"value": "123123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{SERVER}}/api/registro",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"api",
+						"registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "markintux",
+							"type": "text"
+						},
+						{
+							"key": "senha",
+							"value": "123123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{SERVER}}/api/login",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{SERVER}}/api/logout?token=a70afaf192de6f70c588b794036c6f83",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"api",
+						"logout"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "a70afaf192de6f70c588b794036c6f83"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Questão",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token\": \"e2eeffc106cc58a891ada7e6c213348a\",\n    \"enunciado\": \"Qual é a fórmula do ácido sulfúrico?\",\n    \"materia\": \"Química\",\n    \"dificuldade\": \"Difícil\",\n    \"opcoes\": [\n        { \"letra\": \"A\", \"opcao\": \"H2SO4\", \"opcao_correta\": true },\n        { \"letra\": \"B\", \"opcao\": \"HCl\", \"opcao_correta\": false },\n        { \"letra\": \"C\", \"opcao\": \"HNO3\", \"opcao_correta\": false },\n        { \"letra\": \"D\", \"opcao\": \"CH3COOH\", \"opcao_correta\": false },\n        { \"letra\": \"E\", \"opcao\": \"NaOH\", \"opcao_correta\": false }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{SERVER}}/api/banco_questoes",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"api",
+						"banco_questoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gerar Prova",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token\": \"142457623085dd65c0a7ed59400a77c8\",\n    \"dificuldade\": \"Fácil\",\n    \"quantidade_questoes\": 7,\n    \"materias\": [\"Geografia\", \"Química\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{SERVER}}/api/prova",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"api",
+						"prova"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Responder Prova",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token\": \"142457623085dd65c0a7ed59400a77c8\",\n    \"prova_id\": 1,\n    \"questao_id\": 18,\n    \"resposta\": \"A\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{SERVER}}/api/prova/responder",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"api",
+						"prova",
+						"responder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Finalizar Prova",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token\": \"e2eeffc106cc58a891ada7e6c213348a\",\n    \"prova_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{SERVER}}/api/prova/finalizar",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"api",
+						"prova",
+						"finalizar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Prova",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://{{SERVER}}/api/prova/consultar",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"api",
+						"prova",
+						"consultar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Metricas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{SERVER}}/api/metricas?token=142457623085dd65c0a7ed59400a77c8",
+					"protocol": "http",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"api",
+						"metricas"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "142457623085dd65c0a7ed59400a77c8"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
