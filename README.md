@@ -1,6 +1,6 @@
-# Prova Backend Seletiva SPSkills 2024
+# Prova Backend Seletiva #17 SPSkills 2024
 
-Este projeto é uma API desenvolvida para gerenciar provas e questões, criada como parte da seletiva do ano de 2024 da competição World Skills do estado de SP. A API permite a criação, resposta e finalização de provas, bem como a consulta de estatísticas de desempenho do usuário.
+Este projeto é uma API desenvolvida para gerenciar provas e questões, criada como parte da seletiva da categoria #17 (Tecnologias Web) do ano de 2024 da competição World Skills do estado de SP. A API permite a criação, resposta e finalização de provas, bem como a consulta de estatísticas de desempenho do usuário.
 
 ## Tecnologias Utilizadas
 
